@@ -475,3 +475,16 @@ Private Sub Array_Reverse(ByRef Ary() As Variant)
         RIndex = RIndex - 1
     Wend
 End Sub
+
+'空白セル判定
+Private Function IsBlankCell(ByRef TargetCell As Range) As Boolean
+    IsBlankCell = True
+    
+    With TargetCell
+        If IsEmpty(.Value) Then Exit Function
+        If IsNull(.Value) Then Exit Function
+        If .Value = "" Then Exit Function
+    End With
+    
+    IsBlankCell = False
+End Function
